@@ -1,0 +1,33 @@
+Summarise your findings here (see specification).
+
+I wrote a few additional functions that solve the puzzle using only basic logic.
+It tests each number in each position and asks, "does this number I'm testing
+fit anywhere else in this column? or in this row? or in this box?"  If the
+answer was "no" to any of those questions then that means that number MUST go
+into that position.  My function would continue through the whole board until
+it couldn't fill in any more numbers without guessing.  My findings were as
+follows:
+
+	Easy board:	55 positions were filled in and the puzzle was solved.
+	Medium board:	19 positions were filled in and the puzzle was unsolved.
+	Mystery1 board:	7 positions were filled in and the puzzle was unsolved.
+	Mystery2 board:	6 positions were filled in and the puzzle was unsolved.
+	Mystery3 board:	12 positions were filled in and the puzzle was unsolved.
+	
+Mystery2 board was deemed "impossible to solve" by my 'solve_board' function
+which tests every feasible possibility for a given board so it makes sense that
+the logical solver ('attempt_solve') was only capable of filling in 6
+positions--the least of all the boards.
+
+Mystery1 board is likely the "extremely hard" puzzle since it only offers 7
+simple-logic solutions before more advanced logic is required (i.e. recognizing
+two boxes that will both contain either a 7 or 1 and deducing that the row,
+column, or box containing those two boxes can therefore not have any other 7's
+or 1's).
+
+Mystery3 board is likely the "hard" puzzle because it is far more generous
+offering 12 simple-logic solutions while Mystery1 board offered almost half as
+many.  On a board of only 81 numbers (and assuming over 20 numbers have been
+filled in already as is the case with these two boards), 5 extra simple-logic
+solutions will probably allow for considerably less guessing and/or advanced
+logic.
